@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { getFilter } from 'redux/filterSlice';
 import { useGetContactsQuery, useAddPostMutation } from 'redux/contactsApi';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import { ContactList } from '../ContactList';
 import { Filter } from '../Filter';

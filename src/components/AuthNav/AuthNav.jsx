@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { StyledLink, Container } from './AuthNav.styled';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
