@@ -21,7 +21,9 @@ export const registration = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error.message);
+      if (error.response.status === 400) {
+        toast.error('This user is already registrated!');
+      }
       return rejectWithValue(error.message);
     }
   }
@@ -66,7 +68,8 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
+      return rejectWithValue();
     }
   }
 );

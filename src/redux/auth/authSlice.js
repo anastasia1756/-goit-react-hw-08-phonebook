@@ -48,4 +48,4 @@ export const authSlice = createSlice({
 // Selectors
 export const getIsLoggedIn = state => state.auth.isLoggedIn;
 export const getisRefreshingUser = state => state.auth.isRefreshingUser;
-export const getUsername = state => state.auth.user.name;
+export const getUsername = state => state.auth.user?.name;

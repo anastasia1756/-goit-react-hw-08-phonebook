@@ -6,6 +6,7 @@ import { FormControl, FormLabel, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Btn } from './RegisterPage.styled';
 import { ErrorMessage } from '@hookform/error-message';
+import { Toaster } from 'react-hot-toast';
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -175,6 +176,7 @@ export const RegisterPage = () => {
                 marginBottom: '20px',
               }}
             />
+            <Toaster />
           </FormControl>
         </form>
       </Grid>
