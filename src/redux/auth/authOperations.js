@@ -50,7 +50,7 @@ export const logOut = createAsyncThunk(
       await axios.post('/users/logout');
       token.unset();
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue();
     }
   }
 );
@@ -60,7 +60,7 @@ export const fetchCurrentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
     const persistedToken = state.auth.token;
-    if (persistedToken === null) {
+    if (!persistedToken) {
       return rejectWithValue();
     }
     token.set(persistedToken);
