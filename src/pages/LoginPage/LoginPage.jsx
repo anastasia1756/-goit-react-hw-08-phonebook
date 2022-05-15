@@ -1,6 +1,4 @@
 import React from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
@@ -10,21 +8,6 @@ import { Btn } from './LoginPage.styled';
 import { ErrorMessage } from '@hookform/error-message';
 import { Toaster } from 'react-hot-toast';
 
-const schema = yup
-  .object({
-    email: yup
-      .string()
-      .email()
-      .typeError('Custom not a number message!')
-      .required(),
-    password: yup
-      .string()
-      .required('No password provided.')
-      .min(8, 'Password is too short - should be 8 chars minimum.')
-      .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
-  })
-  .required();
-
 export const LoginPage = () => {
   const dispatch = useDispatch();
   const {
@@ -32,9 +15,7 @@ export const LoginPage = () => {
     handleSubmit,
     formState: { errors },
     resetField,
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  } = useForm({});
   const onSubmit = ({ email, password }) => {
     resetField('email');
     resetField('password');
